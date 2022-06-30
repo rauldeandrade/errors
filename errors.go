@@ -2,6 +2,6 @@ package errors
 
 import "fmt"
 
-func newPrint() {
+func NewPrint() {
 	fmt.Println("hello.")
 }
