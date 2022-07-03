@@ -6,7 +6,8 @@ type ControllerError struct {
 	httpCode     int
 }
 
-func NewCtrlErr(be *BaseError) *ControllerError {
+// New Controller Error
+func NewCtlError(be *BaseError) *ControllerError {
 	return &ControllerError{
 		BaseError: *be,
 	}
