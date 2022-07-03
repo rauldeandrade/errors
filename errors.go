@@ -1,13 +1,9 @@
 package main
 
-import (
-	"github.com/rauldeandrade/errors/errors"
-)
-
 var (
-	UnknownError = errors.NewBaseError().Kind("unknown error")
+	UnknownError = NewBaseError().Kind("unknown error")
 
-	BadRequest          = errors.NewBaseError("bad request")
-	NotFound            = errors.NewBaseError("not found")
-	InternalServerError = errors.NewBaseError("internal server error")
+	BadRequest          = NewBaseError("bad request")
+	NotFound            = NewBaseError("not found")
+	InternalServerError = NewBaseError("internal server error")
 )

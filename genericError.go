@@ -1,4 +1,4 @@
-package errors
+package main
 
 type erratum interface {
 	BaseError | ControllerError

@@ -1,4 +1,4 @@
-package errors
+package main
 
 type ControllerError struct {
 	BaseError
