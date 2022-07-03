@@ -15,11 +15,20 @@ type BaseError struct {
 //This error contains (kind, root cause, message) string, (error chain) error
 func NewBaseError(fields ...string) *BaseError {
 	//I don't like (fields ...string)
-	return &BaseError{
-		kind:      fields[0],
-		rootCause: fields[1],
-		message:   fields[2],
+
+	b := &BaseError{}
+
+	switch len(fields) {
+	case 1:
+		b.kind = fields[0]
+	case 2:
+		b.rootCause = fields[1]
+	case 3:
+		b.message = fields[2]
+	default:
+		return b
 	}
+	return b
 }
 
 func (e *BaseError) Error() string {
