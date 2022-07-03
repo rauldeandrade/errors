@@ -1,4 +1,4 @@
-package main
+package errors
 
 var (
 	UnknownError = NewBaseError().Kind("unknown error")
