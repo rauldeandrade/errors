@@ -9,8 +9,17 @@ type BaseError struct {
 	errChain  error  // chain of upstream errors that caused this error
 }
 
-func New() *BaseError {
-	return &BaseError{}
+//func NewBaseError(kind, rootCause, message)
+//
+//New generic error, which can serve as a base for other errors.
+//This error contains (kind, root cause, message) string, (error chain) error
+func NewBaseError(fields ...string) *BaseError {
+	//I don't like (fields ...string)
+	return &BaseError{
+		kind:      fields[0],
+		rootCause: fields[1],
+		message:   fields[2],
+	}
 }
 
 func (e *BaseError) Error() string {
@@ -35,23 +44,23 @@ func (e *BaseError) Error() string {
 	return fmt.Sprintf("ERROR:  %s", str)
 }
 
-func (e *BaseError) Kind(kind string) string {
-	if kind != "" {
-		e.kind = kind
+func (e *BaseError) Kind(kind ...string) string {
+	if kind != nil {
+		e.kind = kind[0]
 	}
 	return e.kind
 }
 
-func (e *BaseError) RootCause(rootCause string) string {
-	if rootCause != "" {
-		e.rootCause = rootCause
+func (e *BaseError) RootCause(rootCause ...string) string {
+	if rootCause != nil {
+		e.rootCause = rootCause[0]
 	}
 	return e.rootCause
 }
 
-func (e *BaseError) Message(msg string) string {
-	if msg != "" {
-		e.message = msg
+func (e *BaseError) Message(msg ...string) string {
+	if msg != nil {
+		e.message = msg[0]
 	}
 	return e.message
 }
