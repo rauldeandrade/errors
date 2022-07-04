@@ -22,6 +22,11 @@ func NewCtlError(be *BaseError) *ControllerError {
 
 func (ce *ControllerError) JsonRes() map[string]interface{} {
 
+	ce.jsonResError = map[string]interface{}{"error": ce.Error()}
+	return ce.jsonResError
+}
+
+func (ce *ControllerError) GetHttpCode() int {
 	switch ce.BaseError.kind {
 	//# I want to change this
 	case "not found":
@@ -31,11 +36,5 @@ func (ce *ControllerError) JsonRes() map[string]interface{} {
 	default:
 		ce.httpCode = 500
 	}
-
-	ce.jsonResError = map[string]interface{}{"error": ce.Error()}
-	return ce.jsonResError
-}
-
-func (ce *ControllerError) GetHttpCode() int {
 	return ce.httpCode
 }
