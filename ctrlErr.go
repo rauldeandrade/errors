@@ -32,7 +32,7 @@ func (ce *ControllerError) JsonRes() map[string]interface{} {
 		ce.httpCode = 500
 	}
 
-	ce.jsonResError = map[string]interface{}{"message": ce.Error()}
+	ce.jsonResError = map[string]interface{}{"error": ce.Error()}
 	return ce.jsonResError
 }
 

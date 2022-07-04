@@ -50,7 +50,7 @@ func (e *BaseError) Error() string {
 			str += "root cause: " + e.rootCause
 		}
 	}
-	return fmt.Sprintf("ERROR %s", str)
+	return fmt.Sprint(str)
 }
 
 func (e *BaseError) Kind(kind ...string) string {
