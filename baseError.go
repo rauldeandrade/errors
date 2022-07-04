@@ -53,7 +53,7 @@ func (e *BaseError) Error() string {
 		if str != "" {
 			str += ": "
 		}
-		str += "root cause: " + e.rootCause
+		str += e.rootCause
 	}
 	return fmt.Sprint(str)
 }
