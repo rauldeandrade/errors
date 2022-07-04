@@ -38,17 +38,22 @@ func (e *BaseError) Error() string {
 
 	str := ""
 	if e.kind != "" {
+		if str != "" {
+			str += ": "
+		}
 		str += e.kind
 	}
 	if e.message != "" {
+		if str != "" {
+			str += ": "
+		}
 		str += e.message
 	}
 	if e.rootCause != "" {
 		if str != "" {
-			str += ": root cause: " + e.rootCause
-		} else {
-			str += "root cause: " + e.rootCause
+			str += ": "
 		}
+		str += "root cause: " + e.rootCause
 	}
 	return fmt.Sprint(str)
 }
