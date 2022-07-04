@@ -38,10 +38,10 @@ func (e *BaseError) Error() string {
 
 	str := ""
 	if e.kind != "" {
-		str += ": " + e.kind
+		str += e.kind
 	}
 	if e.message != "" {
-		str += ": " + e.message
+		str += e.message
 	}
 	if e.rootCause != "" {
 		if str != "" {
