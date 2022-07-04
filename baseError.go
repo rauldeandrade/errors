@@ -45,9 +45,9 @@ func (e *BaseError) Error() string {
 	}
 	if e.rootCause != "" {
 		if str != "" {
-			str += ": root cause:\n\t\t" + e.rootCause
+			str += ": root cause: " + e.rootCause
 		} else {
-			str += "root cause:\n\t\t" + e.rootCause
+			str += "root cause: " + e.rootCause
 		}
 	}
 	return fmt.Sprintf("ERROR:  %s", str)
