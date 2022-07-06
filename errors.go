@@ -1,7 +1,7 @@
 package errors
 
 var (
-	UnknownError = NewBaseError().Kind("unknown error")
+	UnknownError = NewBaseError("unknown error")
 
 	BadRequest          = NewBaseError("bad request")
 	NotFound            = NewBaseError("not found")

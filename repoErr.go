@@ -4,7 +4,7 @@ type RepoError struct {
 	BaseError
 }
 
-// New Service Error
+// New Repo Error
 func NewRepoError(be *BaseError) *RepoError {
 	return &RepoError{
 		BaseError: *be,
