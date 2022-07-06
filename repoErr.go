@@ -5,8 +5,8 @@ type RepoError struct {
 }
 
 // New Service Error
-func NewRepoError(be *BaseError) *ServiceError {
-	return &ServiceError{
+func NewRepoError(be *BaseError) *RepoError {
+	return &RepoError{
 		BaseError: *be,
 	}
 }
